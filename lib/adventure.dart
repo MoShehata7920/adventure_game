@@ -11,10 +11,13 @@ class AdventureGame extends FlameGame {
 
   late final CameraComponent cam;
 
-  final world = Level();
+  final world = Level(levelName: 'level-02');
 
   @override
-  FutureOr<void> onLoad() {
+  FutureOr<void> onLoad() async {
+    // load all images into cache
+    await images.loadAllImages();
+
     cam = CameraComponent.withFixedResolution(
         world: world, width: 640, height: 360);
 
