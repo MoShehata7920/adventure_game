@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:ui';
-import 'package:adventure_game/actors/player.dart';
-import 'package:adventure_game/levels/level.dart';
+import 'package:adventure_game/components/player.dart';
+import 'package:adventure_game/components/level.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
@@ -66,17 +66,17 @@ class AdventureGame extends FlameGame
       case JoystickDirection.left:
       case JoystickDirection.upLeft:
       case JoystickDirection.downLeft:
-        player.playerDirection = PlayerDirection.left;
+        player.horizontalMovement = -1;
         break;
 
       case JoystickDirection.right:
       case JoystickDirection.upRight:
       case JoystickDirection.downRight:
-        player.playerDirection = PlayerDirection.right;
+        player.horizontalMovement = 1;
         break;
 
       default:
-        player.playerDirection = PlayerDirection.none;
+        player.horizontalMovement = 0;
         break;
     }
   }
