@@ -75,6 +75,10 @@ class AdventureGame extends FlameGame
         player.horizontalMovement = 1;
         break;
 
+      case JoystickDirection.up:
+        player.hasJumped = true;
+        break;
+
       default:
         player.horizontalMovement = 0;
         break;
