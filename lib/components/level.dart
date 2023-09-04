@@ -1,11 +1,14 @@
 import 'dart:async';
+import 'package:adventure_game/adventure.dart';
+import 'package:adventure_game/components/background_tile.dart';
 import 'package:adventure_game/components/collisions.dart';
 import 'package:adventure_game/components/player.dart';
 import 'package:flame/camera.dart';
+import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 
-class Level extends World {
+class Level extends World with HasGameRef<AdventureGame> {
   final String levelName;
   final Player player;
   Level({
@@ -21,6 +24,36 @@ class Level extends World {
 
     add(level);
 
+    _scrollingBackground();
+    _spawningObjects();
+    _addCollisions();
+
+    return super.onLoad();
+  }
+
+  void _scrollingBackground() {
+    final backgroundLayer = level.tileMap.getLayer('background');
+    const tileSize = 64;
+    final numTilesY = (game.size.y / tileSize).floor();
+    final numTilesX = (game.size.x / tileSize).floor();
+
+    if (backgroundLayer != null) {
+      final backgroundColor =
+          backgroundLayer.properties.getValue('BackgroundColor');
+
+      for (double y = 0; y < game.size.y / numTilesY; y++) {
+        for (double x = 0; x < numTilesX; x++) {
+          final backgroundTile = BackgroundTile(
+              color: backgroundColor ?? 'Gray',
+              position: Vector2(x * tileSize, y * tileSize - tileSize));
+
+          add(backgroundTile);
+        }
+      }
+    }
+  }
+
+  void _spawningObjects() {
     final spawnPointsLayer = level.tileMap.getLayer<ObjectGroup>('spawnPoints');
 
     if (spawnPointsLayer != null) {
@@ -34,7 +67,9 @@ class Level extends World {
         }
       }
     }
+  }
 
+  void _addCollisions() {
     final collisionLayer = level.tileMap.getLayer<ObjectGroup>('collisions');
 
     if (collisionLayer != null) {
@@ -61,7 +96,5 @@ class Level extends World {
     }
 
     player.collisionsBlock = collisionsBlock;
-
-    return super.onLoad();
   }
 }

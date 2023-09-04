@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ui';
 import 'package:adventure_game/components/player.dart';
 import 'package:adventure_game/components/level.dart';
 import 'package:flame/components.dart';

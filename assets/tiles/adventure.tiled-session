@@ -3,8 +3,9 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "level-01.tmx",
+    "activeFile": "level-02.tmx",
     "expandedProjectPaths": [
+        "."
     ],
     "fileStates": {
         "adventure.tsx": {
@@ -18,16 +19,24 @@
             "scale": 1.5,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 310.33333333333337,
-                "y": 226.33333333333337
+                "x": 340.33333333333337,
+                "y": 183.66666666666663
             }
         },
         "level-02.tmx": {
             "scale": 1.5318749999999999,
-            "selectedLayer": 1,
+            "selectedLayer": 2,
             "viewCenter": {
                 "x": 320.1958384332926,
-                "y": 184.41452468380254
+                "y": 182.4561403508772
+            }
+        },
+        "level-03.tmx": {
+            "scale": 1.5318749999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 320.1958384332926,
+                "y": 183.76172990616078
             }
         }
     },
@@ -39,12 +48,16 @@
     "map.width": 40,
     "openFiles": [
         "adventure.tsx",
-        "level-01.tmx"
+        "level-01.tmx",
+        "level-02.tmx"
     ],
     "project": "adventure.tiled-project",
+    "property.type": "string",
     "recentFiles": [
+        "level-03.tmx",
         "adventure.tsx",
-        "level-01.tmx"
+        "level-01.tmx",
+        "level-02.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
