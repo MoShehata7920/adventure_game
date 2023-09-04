@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:adventure_game/adventure.dart';
 import 'package:adventure_game/components/collisions.dart';
+import 'package:adventure_game/components/utils.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/services.dart';
 
@@ -37,6 +38,7 @@ class Player extends SpriteAnimationGroupComponent
   void update(double dt) {
     _updatePlayerState();
     _updatePlayerMovement(dt);
+    _checkCollisions();
     super.update(dt);
   }
 
@@ -96,5 +98,23 @@ class Player extends SpriteAnimationGroupComponent
   void _updatePlayerMovement(double dt) {
     velocity.x = horizontalMovement * moveSpeed;
     position.x += velocity.x * dt;
+  }
+
+  void _checkCollisions() {
+    for (final block in collisionsBlock) {
+      if (!block.isPlatform) {
+        if (checkCollisions(this, block)) {
+          if (velocity.x > 0) {
+            velocity.x = 0;
+            position.x = block.x - width;
+          }
+          if (velocity.x < 0) {
+            velocity.x = 0;
+            position.x = block.x + block.width + width;
+          }
+
+        }
+      }
+    }
   }
 }
