@@ -2,10 +2,9 @@ import 'dart:async';
 import 'package:adventure_game/adventure.dart';
 import 'package:adventure_game/components/background_tile.dart';
 import 'package:adventure_game/components/collisions.dart';
+import 'package:adventure_game/components/fruits.dart';
 import 'package:adventure_game/components/player.dart';
-import 'package:flame/camera.dart';
 import 'package:flame/components.dart';
-import 'package:flame/game.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 
 class Level extends World with HasGameRef<AdventureGame> {
@@ -45,7 +44,8 @@ class Level extends World with HasGameRef<AdventureGame> {
         for (double x = 0; x < numTilesX; x++) {
           final backgroundTile = BackgroundTile(
               color: backgroundColor ?? 'Gray',
-              position: Vector2(x * tileSize, y * tileSize - tileSize));
+              position:
+                  Vector2(x * tileSize - tileSize, y * tileSize - tileSize));
 
           add(backgroundTile);
         }
@@ -62,6 +62,14 @@ class Level extends World with HasGameRef<AdventureGame> {
           case 'Player':
             player.position = Vector2(spawnPoint.x, spawnPoint.y);
             add(player);
+            break;
+
+          case 'Fruit':
+            final fruit = Fruit(
+                fruit: spawnPoint.name,
+                position: Vector2(spawnPoint.x, spawnPoint.y),
+                size: Vector2(spawnPoint.width, spawnPoint.height));
+            add(fruit);
             break;
           default:
         }
