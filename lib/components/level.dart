@@ -4,6 +4,7 @@ import 'package:adventure_game/components/background_tile.dart';
 import 'package:adventure_game/components/collisions.dart';
 import 'package:adventure_game/components/fruits.dart';
 import 'package:adventure_game/components/player.dart';
+import 'package:adventure_game/components/saw.dart';
 import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 
@@ -70,6 +71,20 @@ class Level extends World with HasGameRef<AdventureGame> {
                 position: Vector2(spawnPoint.x, spawnPoint.y),
                 size: Vector2(spawnPoint.width, spawnPoint.height));
             add(fruit);
+            break;
+
+          case 'Saw':
+            final isVertical = spawnPoint.properties.getValue('isVertical');
+            final offNeg = spawnPoint.properties.getValue('offNeg');
+            final offPos = spawnPoint.properties.getValue('offPos');
+
+            final saw = Saw(
+                isVertical: isVertical,
+                offNeg: offNeg,
+                offPos: offPos,
+                position: Vector2(spawnPoint.x, spawnPoint.y),
+                size: Vector2(spawnPoint.width, spawnPoint.height));
+            add(saw);
             break;
           default:
         }

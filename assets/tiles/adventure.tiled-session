@@ -19,16 +19,16 @@
             "scale": 1.5,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 340.33333333333337,
-                "y": 183.66666666666663
+                "x": 341,
+                "y": 184.33333333333334
             }
         },
         "level-02.tmx": {
-            "scale": 1.5318749999999999,
-            "selectedLayer": 2,
+            "scale": 2,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 320.1958384332926,
-                "y": 182.4561403508772
+                "x": 215.25,
+                "y": 177.75
             }
         },
         "level-03.tmx": {
@@ -52,12 +52,12 @@
         "level-02.tmx"
     ],
     "project": "adventure.tiled-project",
-    "property.type": "string",
+    "property.type": "float",
     "recentFiles": [
-        "level-03.tmx",
         "adventure.tsx",
         "level-01.tmx",
-        "level-02.tmx"
+        "level-02.tmx",
+        "level-03.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
