@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:adventure_game/adventure.dart';
 import 'package:adventure_game/components/background_tile.dart';
+import 'package:adventure_game/components/checkpoint.dart';
 import 'package:adventure_game/components/collisions.dart';
 import 'package:adventure_game/components/fruits.dart';
 import 'package:adventure_game/components/player.dart';
@@ -85,6 +86,13 @@ class Level extends World with HasGameRef<AdventureGame> {
                 position: Vector2(spawnPoint.x, spawnPoint.y),
                 size: Vector2(spawnPoint.width, spawnPoint.height));
             add(saw);
+            break;
+
+          case 'Checkpoint':
+            final checkpoint = Checkpoint(
+                position: Vector2(spawnPoint.x, spawnPoint.y),
+                size: Vector2(spawnPoint.width, spawnPoint.height));
+            add(checkpoint);
             break;
           default:
         }
