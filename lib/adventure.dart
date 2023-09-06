@@ -23,11 +23,11 @@ class AdventureGame extends FlameGame
     // load all images into cache
     await images.loadAllImages();
 
-    _loadLevel();
-
     if (showJoyStick) {
       addJoyStick();
     }
+
+    _loadLevel();
 
     return super.onLoad();
   }
@@ -42,6 +42,7 @@ class AdventureGame extends FlameGame
 
   void addJoyStick() {
     joyStick = JoystickComponent(
+        priority: 10,
         knob: SpriteComponent(
             sprite: Sprite(
           images.fromCache('HUD/Knob.png'),
@@ -50,7 +51,7 @@ class AdventureGame extends FlameGame
             sprite: Sprite(
           images.fromCache('HUD/Joystick.png'),
         )),
-        margin: const EdgeInsets.only(left: 32, bottom: 32));
+        margin: const EdgeInsets.only(right: 32, bottom: 32));
 
     add(joyStick);
   }
