@@ -15,6 +15,8 @@ class AdventureGame extends FlameGame
   Player player = Player(character: 'Mask Dude');
   late JoystickComponent joyStick;
   bool showJoyStick = true;
+  bool playSound = true;
+  double soundVolume = 1.0;
   List<String> levelsNames = ['level-01', 'level-02'];
   int currentLevelIndex = 0;
 
@@ -88,6 +90,8 @@ class AdventureGame extends FlameGame
       _loadLevel();
     } else {
       // no more Levels
+      currentLevelIndex = 0;
+      _loadLevel();
     }
   }
 
