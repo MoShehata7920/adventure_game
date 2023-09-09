@@ -40,13 +40,11 @@ class Level extends World with HasGameRef<AdventureGame> {
           backgroundLayer.properties.getValue('BackgroundColor');
 
       final backgroundTile = BackgroundTile(
-              color: backgroundColor ?? 'Gray',
-              position:
-                  Vector2(0, 0));
-          
-          add(backgroundTile);
-      }
+          color: backgroundColor ?? 'Gray', position: Vector2(0, 0));
+
+      add(backgroundTile);
     }
+  }
 
   void _spawningObjects() {
     final spawnPointsLayer = level.tileMap.getLayer<ObjectGroup>('spawnPoints');
@@ -56,6 +54,7 @@ class Level extends World with HasGameRef<AdventureGame> {
         switch (spawnPoint.class_) {
           case 'Player':
             player.position = Vector2(spawnPoint.x, spawnPoint.y);
+            player.scale.x = 1;
             add(player);
             break;
 
