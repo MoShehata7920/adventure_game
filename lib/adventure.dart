@@ -17,7 +17,7 @@ class AdventureGame extends FlameGame
   bool showJoyStick = true;
   bool playSound = true;
   double soundVolume = 1.0;
-  List<String> levelsNames = ['level-01', 'level-02'];
+  List<String> levelsNames = ['level-01', 'level-02', 'level-03', 'level-04'];
   int currentLevelIndex = 0;
 
   @override

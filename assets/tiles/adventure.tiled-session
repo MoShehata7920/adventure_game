@@ -20,8 +20,8 @@
             "scale": 1.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 338.33333333333337,
-                "y": 183.66666666666663
+                "x": 237.66666666666663,
+                "y": 182.99999999999997
             }
         },
         "level-02.tmx": {
@@ -32,16 +32,32 @@
             "scale": 1.5,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 351.66666666666663,
-                "y": 187.66666666666663
+                "x": 348.33333333333337,
+                "y": 186.99999999999997
             }
         },
         "level-03.tmx": {
+            "expandedObjectLayers": [
+                2,
+                3
+            ],
             "scale": 1.5318749999999999,
-            "selectedLayer": 0,
+            "selectedLayer": 1,
             "viewCenter": {
                 "x": 320.1958384332926,
                 "y": 183.76172990616078
+            }
+        },
+        "level-04.tmx": {
+            "expandedObjectLayers": [
+                2,
+                3
+            ],
+            "scale": 1.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 326.33333333333337,
+                "y": 184.99999999999997
             }
         }
     },
@@ -59,10 +75,11 @@
     "project": "adventure.tiled-project",
     "property.type": "float",
     "recentFiles": [
+        "level-03.tmx",
+        "level-04.tmx",
         "adventure.tsx",
         "level-01.tmx",
-        "level-02.tmx",
-        "level-03.tmx"
+        "level-02.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
