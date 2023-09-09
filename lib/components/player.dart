@@ -37,8 +37,8 @@ class Player extends SpriteAnimationGroupComponent
   late final SpriteAnimation appearingAnimation;
   late final SpriteAnimation disappearingAnimation;
   final double _gravity = 9.8;
-  final double _jumpForce = 300;
-  final double _terminalVelocity = 200;
+  final double _jumpForce = 280;
+  final double _terminalVelocity = 300;
 
   double horizontalMovement = 0;
   double moveSpeed = 100;
@@ -47,6 +47,8 @@ class Player extends SpriteAnimationGroupComponent
   List<CollisionsBlock> collisionsBlock = [];
   CustomHitbox hitbox =
       CustomHitbox(offsetX: 10, offsetY: 4, width: 14, height: 20);
+  double fixedDeltaTime = 1 / 60;
+  double accumulatedTime = 0;
   bool isOnGround = false;
   bool hasJumped = false;
   bool gotHit = false;
@@ -55,7 +57,6 @@ class Player extends SpriteAnimationGroupComponent
   @override
   FutureOr<void> onLoad() {
     _loadAllAnimations();
-    // debugMode = true;
     startingPosition = Vector2(position.x, position.y);
 
     add(RectangleHitbox(
@@ -66,13 +67,19 @@ class Player extends SpriteAnimationGroupComponent
 
   @override
   void update(double dt) {
-    if (!gotHit && !reachedCheckpoint) {
-      _updatePlayerState();
-      _updatePlayerMovement(dt);
-      _checkHorizontalCollisions();
-      _applyGravity(dt);
-      _checkVerticalCollisions();
+    accumulatedTime += dt;
+
+    while (accumulatedTime >= fixedDeltaTime) {
+      if (!gotHit && !reachedCheckpoint) {
+        _updatePlayerState();
+        _updatePlayerMovement(fixedDeltaTime);
+        _checkHorizontalCollisions();
+        _applyGravity(fixedDeltaTime);
+        _checkVerticalCollisions();
+      }
+      accumulatedTime -= fixedDeltaTime;
     }
+
     super.update(dt);
   }
 
