@@ -1,4 +1,4 @@
-# adventure_game
+                                                                                                  # Adventure Game
 
 ![Main Screen](gameScreenshot.jpg)
 
