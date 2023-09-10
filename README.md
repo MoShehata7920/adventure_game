@@ -1,4 +1,4 @@
-                                                                                                  # Adventure Game
+# Adventure Game
 
 ![Main Screen](gameScreenshot.jpg)
 
